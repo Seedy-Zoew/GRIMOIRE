@@ -5,5 +5,5 @@ Included:
 WAP autosetup Bash Script:  
 -installs kismet, aircrack, trilateration script, and kestrel  
 WAP Fuckery Guide (WAPFG)  
--rough how to guide for the above programs
+-rough how to guide for the above programs  
 Website Fuckery Guide (WEBFG)  
