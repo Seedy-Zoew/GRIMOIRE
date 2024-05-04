@@ -6,7 +6,7 @@ sudo apt-get update
 
 sudo apt-get upgrade -y
 
-sudo apt-get install -y aircrack-ng gpsd cgps kismet realtek-rtl88xxau-dkms
+sudo apt-get install -y aircrack-ng gpsd kismet realtek-rtl88xxau-dkms
 
 git clone https://github.com/daiceman825/kismet.git
 cd kismet
