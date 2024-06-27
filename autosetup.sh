@@ -38,7 +38,7 @@ cd .. || { echo "Failed to return to previous directory. Exiting script."; exit 
 systemctl start gpsd && echo "Started gpsd service successfully." || { echo "Starting gpsd service failed. Exiting script."; exit 1; }
 
 #kismet, and gpsd reconfiguration
-read -p "Do you want to change from the default configuration? (y/n): " response
+read -p "Do you want to swap to custom configs? (y/n): " response
 if [[ $response == [yY]* ]]; then
   echo "Proceeding with configuration change..."
   cat kismetconf >> /etc/kismet/kismet.conf && echo "Updated kismet.conf successfully." || { echo "Updating kismet.conf failed. Exiting script."; exit 1; }
