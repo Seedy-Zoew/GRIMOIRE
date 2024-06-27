@@ -3,7 +3,6 @@ A book of arcane lore for computer wizardry (Seeing if your wifi password is on 
 ============================================================================================
 Included:  
 WAP autosetup Bash Script:  
--installs kismet, aircrack, trilateration script, and kestrel  
+-installs kismet, aircrack, trilateration script, and realtek drivers.
 WAP Fuckery Guide (WAPFG)  
--rough how to guide for the above programs  
-Website Fuckery Guide (WEBFG)  
+-rough how to guide for the above programs. 
