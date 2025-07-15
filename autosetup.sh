@@ -26,14 +26,6 @@ apt install linux-headers-$(uname -r) && echo "Installation of linux-headers suc
 ls /lib/modules/$(uname -r)/build && echo "Kernel headers check successful." || { echo "Kernel headers check failed. Exiting script."; exit 1; }
 cd .. || { echo "Failed to return to previous directory. Exiting script."; exit 1; }
 
-#kismet trilateration script
-git clone https://github.com/daiceman825/kismet.git && echo "Cloning kismet repository successful." || { echo "Cloning kismet repository failed. Exiting script."; exit 1; }
-cd kismet || { echo "Failed to enter kismet directory. Exiting script."; exit 1; }
-
-pip3 install -r requirements.txt && echo "Python dependencies installation successful." || { echo "Python dependencies installation failed. Exiting script."; exit 1; }
-
-cd .. || { echo "Failed to return to previous directory. Exiting script."; exit 1; }
-
 #enabling background stuff
 systemctl start gpsd && echo "Started gpsd service successfully." || { echo "Starting gpsd service failed. Exiting script."; exit 1; }
 
